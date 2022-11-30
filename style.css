@@ -1,0 +1,107 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(images/background_image.jpg);
+    background-attachment: fixed;
+    background-size: 100%;
+}
+#wrap {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1400px;
+    height: 100%;
+    background-color: #cfec65;
+}
+
+input[type="text"], input[type="submit"], input[type="password"], input[type="email"], select, option{
+    border-radius: 15%;
+    margin: 5px;
+    width: 10em;
+    background-color: rgb(216, 255, 206);
+    font-family: fantasy;
+    font-size: 1.2em;
+}
+
+input[type="text"], input[type="password"], select, option {
+    color: #28a745;
+    border-color: #28a745;
+}
+
+.error {
+    color: #a72828;
+    border-color: #a72828;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    color: #28a745;
+    background-color: rgb(216, 255, 206);
+}
+
+input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder { 
+    color: #28a745;
+}
+
+tbody {
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    color: #4caf50;
+    font-family: 'Impact';
+}
+
+.jumbotron {
+    background-color: rgb(216, 255, 206);
+}
+
+.container {
+    margin-top: -27%;
+    margin-left: 15%;
+    margin-right: auto;
+    margin-bottom: 30%;
+    position: relative;
+    width: 100%;
+    background-color: rgba(216, 255, 206, 0.175);
+}
+
+.header-h1 {
+    position: relative;
+    text-align: center;
+    margin-bottom: .5rem;
+  }
+.header-h1 h1 {
+    font-family: 'Impact';
+    position: relative;
+    display: inline-block;
+    background: rgb(216, 255, 206);
+    margin-bottom: 0;
+    padding: 0.5rem 1rem;
+    border-bottom: .125rem solid #86e089;
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: #4caf50;
+  }
+.header-h1 h1::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -1.25rem;
+    transform: translateX(-1.25rem);
+    border-top: 1.25rem solid #a5d6a7;
+    border-left: 1.25rem solid transparent;
+    border-right: 1.25rem solid transparent;
+  }
+.header-h1 h1::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -1.125rem;
+    transform: translateX(-1.25rem);
+    border-top: 1.25rem solid rgb(216, 255, 206);
+    border-left: 1.25rem solid transparent;
+    border-right: 1.25rem solid transparent;
+  }
