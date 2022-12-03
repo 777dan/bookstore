@@ -35,6 +35,7 @@ function output($arr)
 function showEverything($books)
 {
     echo "<tr>";
+    $count = 0;
     $year = 0;
     foreach ($books as $key => $value) {
         if ($key == "year") $year = $value;
@@ -46,7 +47,10 @@ function showEverything($books)
         if ($key == "sold") continue;
         if ($key == "sumSold") continue;
         if ($key == "discount" && $year >= 1910) $value = "Есть";
-        echo "<td>$value</td>";
+        if ($key == "description") continue;
+        if ($count == 0) echo "<td><a href=" . "'" . $books->description . "'" . ">$value</a></td>";
+        if ($count >= 1) echo "<td>$value</td>";
+        $count++;
     }
     echo "</tr>";
 }
@@ -74,10 +78,15 @@ function searchResult($books, $request)
 
 function login()
 {
+    $open_usersArr = fopen("users.json", "r+");
+    $content = fread($open_usersArr, filesize("users.json"));
+    $users = json_decode($content);
     $login = $_POST['login'];
     $password = $_POST['password'];
+    $count = false;
     if ($login == "admin" && $password == "admin") {
-        // echo "Admin";
+        $count = true;
+        echo "<h1 id='hello'>Приветствуем вас, $login</h1>";
         echo '<script>
         var input = document.createElement("input");
         var br = document.createElement("br");
@@ -87,11 +96,24 @@ function login()
         input.className = "btn btn-outline-success";
         document.getElementById("menu").appendChild(input);
         document.getElementById("menu").appendChild(br);</script>';
-    } else if (preg_match_all("#\w{5,15}#", $login) && preg_match_all("#\w{8,17}#", $password)) {
-        echo "OK";
     } else {
-        echo "Error";
-        echo "<script>document.getElementsByName('password').classList.toggle('error');</script>";
+        if (preg_match_all("#\w{5,15}#", $login) && preg_match_all("#\w{8,17}#", $password)) {
+            for ($i = 0; $i < count($users); $i++) {
+                if ($login == $users[$i]->login && $password == $users[$i]->password) {
+                    $count = true;
+                    echo "<h1 id='hello'>Приветствуем вас, $login</h1>";
+                    break;
+                } else {
+                    $count = false;
+                }
+            }
+        }
+        if (!preg_match_all("#\w{5,15}#", $login) && !preg_match_all("#\w{8,17}#", $password)) {
+            echo "<h1 id='error'>Ошибка! Вы ввели недопустимое количество символов</h1>";
+        }
+        if ($count == false && preg_match_all("#\w{5,15}#", $login) && preg_match_all("#\w{8,17}#", $password)) {
+            echo "<h1 id='error'>Вы не зарегистрированы!</h1>";
+        }
     }
 }
 

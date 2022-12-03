@@ -16,14 +16,32 @@ body {
     background-color: #cfec65;
 }
 
-input[type="text"], input[type="submit"], input[type="password"], input[type="email"], select, option{
+#nav { 
+    background-color: rgba(0,0,0,0);
+}
+
+input[type="text"], input[type="submit"], input[type="password"], input[type="email"], select, option, button{
     border-radius: 15%;
-    margin: 5px;
+    margin-top: 25px;
     width: 10em;
     background-color: rgb(216, 255, 206);
     font-family: fantasy;
     font-size: 1.2em;
 }
+.form-inline {
+    flex-flow: nowrap;
+}
+
+.input-group {
+    width: 10em !important;
+    font-size: 1.1em;
+}
+
+button {
+    font-family: Arial !important;
+    width: 80px;
+}
+
 
 input[type="text"], input[type="password"], select, option {
     color: #28a745;
@@ -58,12 +76,32 @@ footer {
     background-color: rgb(216, 255, 206);
 }
 
+#hello {
+    text-align: center;
+    color: #4caf50;
+    font-family: 'Impact';
+}
+
+a {
+    text-decoration: none;
+  color: #666;
+}
+
+#error {
+    text-align: center;
+    color: #ff2200;
+    font-family: 'Impact';
+}
+
 .container {
-    margin-top: -27%;
+    /* margin-top: -27%;
     margin-left: 15%;
     margin-right: auto;
     margin-bottom: 30%;
-    position: relative;
+    position: relative; */
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: 100%;
     background-color: rgba(216, 255, 206, 0.175);
 }

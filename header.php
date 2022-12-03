@@ -13,6 +13,6 @@
 
 <body>
     <div id="wrap">
-        <div class="header-h1">
+        <div class="container header-h1" style="margin-top: 0;background-color:rgba(0,0,0,0);">
             <h1>Книжный магазин</h1>
         </div>
